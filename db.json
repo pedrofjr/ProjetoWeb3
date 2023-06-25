@@ -1,0 +1,48 @@
+{
+  "eleicoes": [
+    {
+      "ano": "2024",
+      "tipo": "Municipal",
+      "localidade": "Dois Vizinhos, PR",
+      "status": "Pendente",
+      "id": 1
+    },
+    {
+      "ano": "2024",
+      "tipo": "Estadual",
+      "localidade": "Paraná",
+      "status": "Pendente",
+      "id": 2
+    }
+  ],
+  "partidos": [
+    {
+      "nome": "Partido dos Testes",
+      "sigla": "PT",
+      "anoFundacao": "2023",
+      "id": 1
+    },
+    {
+      "nome": "Partido da Web",
+      "sigla": "PW",
+      "anoFundacao": "2023",
+      "id": 2
+    }
+  ],
+  "candidatos": [
+    {
+      "nome": "Eduardo Borse",
+      "idade": "20",
+      "idPartido": "1",
+      "idEleicao": "1",
+      "id": 1
+    },
+    {
+      "nome": "Pedro PHPiterson",
+      "idade": "20",
+      "idPartido": "2",
+      "idEleicao": "2",
+      "id": 2
+    }
+  ]
+}
