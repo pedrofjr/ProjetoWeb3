@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Ou outro cliente HTTP que preferir.
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function CreatePartido() {
   const [partido, setPartido] = useState({
-    idPartido: '',
     nome: '',
     sigla: '',
     anoFundacao: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setPartido({ ...partido, [event.target.name]: event.target.value });
@@ -16,22 +18,26 @@ function CreatePartido() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/api/partidos', partido); // Substitua pelo caminho correto da sua API.
-      // Tratamento após sucesso na criação.
+      await axios.post('http://localhost:3001/partidos', partido);
+      navigate('/');
     } catch (error) {
-      // Tratamento de erro.
+      console.log(error)
     }
-  };
+  };  
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Aqui você adiciona os campos do formulário para cada atributo do partido */}
-      {/* Por exemplo, para o nome: */}
       <label>
         Nome:
         <input name="nome" type="text" value={partido.nome} onChange={handleChange} />
+        <br/>
+        Sigla:
+        <input name="sigla" type="text" value={partido.sigla} onChange={handleChange} />
+        <br/>
+        Ano de Fundação:
+        <input name="anoFundacao" type="number" value={partido.anoFundacao} onChange={handleChange} />
       </label>
-      {/* Adicione os demais campos aqui... */}
+      <br/>
       <button type="submit">Criar Partido</button>
     </form>
   );
