@@ -1,35 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Ou outro cliente HTTP que preferir.
+import axios from 'axios';
 
 function ListCandidato() {
   const [candidatos, setCandidatos] = useState([]);
+  const [partidos, setPartidos] = useState([]);
+  const [eleicoes, setEleicoes] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/candidatos'); // Substitua pelo caminho correto da sua API.
-        setCandidatos(response.data);
+        const [candidatosResponse, partidosResponse, eleicoesResponse] = await Promise.all([
+          axios.get('http://localhost:3001/candidatos'),
+          axios.get('http://localhost:3001/partidos'),
+          axios.get('http://localhost:3001/eleicoes')
+        ]);
+        setCandidatos(candidatosResponse.data);
+        setPartidos(partidosResponse.data);
+        setEleicoes(eleicoesResponse.data);
       } catch (error) {
-        // Tratamento de erro.
+        console.log(error)
       }
     };
     fetchData();
-  }, []); // O array vazio indica que o useEffect deve ser executado apenas uma vez, após a primeira renderização.
+  }, []);
 
-return (
-  <div>
-    {/* Aqui você irá listar seus candidatos */}
-    {/* Por exemplo: */}
-    {candidatos.map((candidato) => (
-      <div key={candidato.idCandidato}>
-        <h3>Nome: {candidato.nome}</h3>
-        <p>Idade: {candidato.idade}</p>
-        <p>ID do Partido: {candidato.idPartido}</p>
-        <p>ID da Eleição: {candidato.idEleicao}</p>
-        {/* Mostre os demais campos aqui... */}
-      </div>
-    ))}
-  </div>
-);
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Partido</th>
+            <th>Eleição</th>
+          </tr>
+        </thead>
+        <tbody>
+          {candidatos.map((candidato) => {
+            const partido = partidos.find(partido => partido.id == candidato.idPartido);
+            const eleicao = eleicoes.find(eleicao => eleicao.id == candidato.idEleicao);
+            return (
+              <tr key={candidato.id}>
+                <td>{candidato.nome}</td>
+                <td>{candidato.idade}</td>
+                <td>{partido && partido.nome}</td>
+                <td>{eleicao && eleicao.localidade + ' - ' + eleicao.ano}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 export default ListCandidato;
