@@ -17,27 +17,21 @@ function ListarEleicoes() {
   }, []);
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Ano</th>
-            <th>Tipo</th>
-            <th>Localidade</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {eleicoes.map((eleicao) => (
-            <tr key={eleicao.id}>
-              <td>{eleicao.ano}</td>
-              <td>{eleicao.tipo}</td>
-              <td>{eleicao.localidade}</td>
-              <td>{eleicao.status}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container">
+      <div className="row header">
+        <div className="cell">Ano</div>
+        <div className="cell">Tipo</div>
+        <div className="cell">Localidade</div>
+        <div className="cell">Status</div>
+      </div>
+      {eleicoes.map((eleicao) => (
+        <div key={eleicao.id} className="row">
+          <div className="cell">{eleicao.ano}</div>
+          <div className="cell">{eleicao.tipo}</div>
+          <div className="cell">{eleicao.localidade}</div>
+          <div className="cell">{eleicao.status}</div>
+        </div>
+      ))}
     </div>
   );
 }

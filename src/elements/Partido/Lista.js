@@ -10,32 +10,23 @@ function ListPartido() {
         const response = await axios.get('http://localhost:3001/partidos');
         setPartidos(response.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
     fetchData();
-  }, []); 
+  }, []);
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Sigla</th>
-            <th>Ano de Fundação</th>
-          </tr>
-        </thead>
-        <tbody>
-          {partidos.map((partido) => (
-            <tr key={partido.id}>
-              <td>{partido.nome}</td>
-              <td>{partido.sigla}</td>
-              <td>{partido.anoFundacao}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ul>
+        {partidos.map((partido) => (
+          <li key={partido.id} className="list-item">
+            <div>{`Nome: ${partido.nome}`}</div>
+            <div>{`Sigla: ${partido.sigla}`}</div>
+            <div>{`Ano de Fundação: ${partido.anoFundacao}`}</div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
