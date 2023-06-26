@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function ListCandidato() {
   const [candidatos, setCandidatos] = useState([]);
   const [partidos, setPartidos] = useState([]);
   const [eleicoes, setEleicoes] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +53,9 @@ function ListCandidato() {
           })}
         </tbody>
       </table>
+      <div className="buttons">
+        <button onClick={() => navigate('/')}>Voltar</button>
+      </div>
     </div>
   );
 }

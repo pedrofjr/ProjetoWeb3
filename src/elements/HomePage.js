@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
-    <div>
+    <div className="homepage-container">
       <h1>Bem-vindo à nossa plataforma de eleições</h1>
       <p>Aqui você pode gerenciar eleições, partidos e candidatos.</p>
       <nav>

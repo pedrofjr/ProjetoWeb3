@@ -37,8 +37,10 @@ function CreatePartido() {
         Ano de Fundação:
         <input name="anoFundacao" type="number" value={partido.anoFundacao} onChange={handleChange} />
       </label>
-      <br/>
-      <button type="submit">Criar Partido</button>
+      <div className="buttons">
+        <button type="submit">Criar Partido</button>
+        <button onClick={() => navigate('/')}>Cancelar</button>
+      </div>
     </form>
   );
 }

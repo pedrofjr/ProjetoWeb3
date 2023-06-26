@@ -9,10 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: #00B7FF;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -20,6 +16,66 @@ code {
 
 li {
   list-style-type: none;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em;
+}
+
+p {
+  color: #666;
+  font-size: 1.5em;
+  margin-bottom: 2em;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+label {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+input, select {
+  margin-top: 5px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:last-child {
+  background-color: #dc3545;
+  margin-left: 10px;
 }
 
 table {
@@ -35,13 +91,31 @@ th {
   background-color: #f2f2f2;
 }
 
+.homepage-container {
+  text-align: center;
+  padding: 50px 0;
+}
+
 .titleStyle {
-  font-size: 1.5em;
-  font-weight: bold;
+  color: #007bff;
+  font-size: 2em;
+  margin-top: 1em;
 }
 
 .linkStyle {
-  font-size: 1.5em;
+  color: #dc3545;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.linkStyle:hover {
+  color: #007bff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .container {

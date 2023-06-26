@@ -51,8 +51,10 @@ function CriarEleicao() {
           <option value="Finalizada">Finalizada</option>
         </select>
       </label>
-      <br/>
-      <button type="submit">Criar Eleição</button>
+      <div className="buttons">
+        <button type="submit">Criar Eleição</button>
+        <button onClick={() => navigate('/')}>Cancelar</button>
+      </div>
     </form>
   );
 }

@@ -77,8 +77,10 @@ function CreateCandidato() {
           ))}
         </select>
       </label>
-      <br/>
-      <button type="submit">Criar Candidato</button>
+      <div className="buttons">
+        <button type="submit">Criar Candidato</button>
+        <button onClick={() => navigate('/')}>Cancelar</button>
+      </div>
     </form>
   );
 }

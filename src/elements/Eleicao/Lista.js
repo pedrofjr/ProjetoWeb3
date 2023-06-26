@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function ListarEleicoes() {
   const [eleicoes, setEleicoes] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +35,9 @@ function ListarEleicoes() {
           <div className="cell">{eleicao.status}</div>
         </div>
       ))}
+      <div className="buttons">
+        <button onClick={() => navigate('/')}>Voltar</button>
+      </div>
     </div>
   );
 }
