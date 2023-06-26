@@ -19,7 +19,6 @@ function HomePage() {
           <li className="titleStyle">Candidatos</li>
           <li><Link to="/candidato/formulario" className="linkStyle">Criar Candidato</Link></li>
           <li><Link to="/candidato/lista" className="linkStyle">Listar Candidatos</Link></li>
-          {/* Você pode adicionar links para as páginas de criação e listagem de partidos e candidatos aqui... */}
         </ul>
       </nav>
     </div>
